@@ -1,21 +1,43 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Link } from "@chakra-ui/layout";
 import { ListItem, UnorderedList, HStack } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/image";
 
+const url =
+    "https://media-exp1.licdn.com/dms/image/C560BAQGksnLv2Ak_yA/company-logo_200_200/0/1589738358766?e=1644451200&v=beta&t=zfuU6jJ9Enq00XugiWt_HgCQbAd8F08gqr-4pqnxW7I";
+
 export default function Home() {
     return (
-        <Box display="flex" flex-direction="row" width="100vw" margin="auto">
+        <Box
+            display="flex"
+            flex-direction="row"
+            width="100vw"
+            margin="auto"
+            padding="0.6rem"
+        >
             <Box margin="10px">
-                <Image src="../images/cybruh.jpg" alt="Cybruh Logo"></Image>
+                <Image src={url} alt="Cybruh Logo"></Image>
             </Box>
-            <UnorderedList margin="10px">
-                <HStack spacing="30px">
-                    <ListItem padding="5px">Home</ListItem>
-                    <ListItem padding="5px">Leaderboard</ListItem>
-                    <ListItem padding="5px">Problemset</ListItem>
-                </HStack>
-            </UnorderedList>
-            <Box margin="10px">Login/Sign-In</Box>
+            <Box marginRight="30rem" marginLeft="7rem" fontSize="1.2rem">
+                <UnorderedList margin="10px" listStyleType="none">
+                    <HStack spacing="30px">
+                        <ListItem border="0px" padding="5px">
+                            <Link href="/">Home</Link>
+                        </ListItem>
+                        <ListItem border="0px" padding="5px">
+                            <Link href="/leaderboard">Leaderboard</Link>
+                        </ListItem>
+                        <ListItem border="0px" padding="5px">
+                            <Link href="/problemset">Problemset</Link>
+                        </ListItem>
+                        <ListItem border="0px" padding="5px">
+                            <Link href="/forum">Forum</Link>
+                        </ListItem>
+                    </HStack>
+                </UnorderedList>
+            </Box>
+            <Box marginTop="0.85rem" fontSize="1.2rem">
+                <Link href="/login">Login</Link>
+            </Box>
         </Box>
     );
 }

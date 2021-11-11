@@ -2,7 +2,6 @@ import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "../components/Navbar";
 import { createClient, Provider } from "urql";
-import cors from "cors";
 
 const client = createClient({
     url: "https://potato-hyperlearner.herokuapp.com/graphql",
