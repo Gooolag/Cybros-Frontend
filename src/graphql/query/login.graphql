@@ -1,0 +1,5 @@
+mutation Login($details: loginDetails!) {
+  login(details: $details) {
+    accessToken
+  }
+}
