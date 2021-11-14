@@ -1,5 +1,5 @@
-mutation Login($details: loginDetails!) {
-  login(details: $details) {
+mutation Login($id: String!) {
+  login(id: $id) {
     accessToken
   }
 }

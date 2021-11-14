@@ -17,7 +17,7 @@ function Nav() {
       <Text color="white" d="flex" justifyContent="space-evenly" width="20%">
         <Link href="/">Home</Link>
         <Link href="/register">register</Link>
-        <Link href="/login">login</Link>
+        <Link href="http://localhost:4000/google">login</Link>
         <Link href="/profile">Profile</Link>
       </Text>
     </Box>

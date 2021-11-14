@@ -27,7 +27,7 @@ export type Mutation = {
 
 
 export type MutationLoginArgs = {
-  details: LoginDetails;
+  id: Scalars['String'];
 };
 
 
@@ -40,7 +40,7 @@ export type Query = {
   getAllUsers: Array<User>;
   getUser: Array<User>;
   hello: Scalars['String'];
-  payload: Scalars['Float'];
+  payload: Scalars['String'];
 };
 
 
@@ -50,9 +50,10 @@ export type QueryGetUserArgs = {
 
 export type User = {
   __typename?: 'User';
+  admin: Scalars['Boolean'];
   email: Scalars['String'];
   first_name: Scalars['String'];
-  id: Scalars['Float'];
+  id: Scalars['String'];
   last_name: Scalars['String'];
   picture?: Maybe<Scalars['String']>;
 };
@@ -69,11 +70,6 @@ export type IdDetails = {
   id: Scalars['Float'];
 };
 
-export type LoginDetails = {
-  email: Scalars['String'];
-  password: Scalars['String'];
-};
-
 export type RegisterMutationVariables = Exact<{
   details: UserDetails;
 }>;
@@ -84,10 +80,10 @@ export type RegisterMutation = { __typename?: 'Mutation', register?: Maybe<{ __t
 export type GetAllUsersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllUsersQuery = { __typename?: 'Query', getAllUsers: Array<{ __typename?: 'User', id: number, email: string, first_name: string, last_name: string, picture?: Maybe<string> }> };
+export type GetAllUsersQuery = { __typename?: 'Query', getAllUsers: Array<{ __typename?: 'User', id: string, email: string, first_name: string, last_name: string, picture?: Maybe<string> }> };
 
 export type LoginMutationVariables = Exact<{
-  details: LoginDetails;
+  id: Scalars['String'];
 }>;
 
 
@@ -96,7 +92,7 @@ export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'Lo
 export type PayloadQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PayloadQuery = { __typename?: 'Query', payload: number };
+export type PayloadQuery = { __typename?: 'Query', payload: string };
 
 
 export const RegisterDocument = gql`
@@ -129,8 +125,8 @@ export function useGetAllUsersQuery(options: Omit<Urql.UseQueryArgs<GetAllUsersQ
   return Urql.useQuery<GetAllUsersQuery>({ query: GetAllUsersDocument, ...options });
 };
 export const LoginDocument = gql`
-    mutation Login($details: loginDetails!) {
-  login(details: $details) {
+    mutation Login($id: String!) {
+  login(id: $id) {
     accessToken
   }
 }
