@@ -7,7 +7,8 @@ import {
     VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { AiFillFire } from "react-icons/ai";
+import { DiAtom, DiCodeigniter } from "react-icons/di";
+import data from "../Components/data";
 
 export default function Home() {
     return (
@@ -45,7 +46,7 @@ export default function Home() {
                         contentArrowStyle={{
                             borderRight: "7px solid  rgb(33, 150, 243)",
                         }}
-                        icon={<AiFillFire />}
+                        icon={<DiCodeigniter />}
                         iconStyle={{
                             background: "rgb(33, 150, 243)",
                             color: "#fff",
@@ -67,7 +68,7 @@ export default function Home() {
                         contentStyle={{
                             color: "rgb(252, 165, 3)",
                         }}
-                        icon={<AiFillFire />}
+                        icon={<DiCodeigniter />}
                         iconStyle={{
                             background: "rgb(33, 150, 243)",
                             color: "#fff",
@@ -86,7 +87,7 @@ export default function Home() {
                     </VerticalTimelineElement>
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
-                        icon={<AiFillFire />}
+                        icon={<DiCodeigniter />}
                         iconStyle={{
                             background: "rgb(33, 150, 243)",
                             color: "#fff",
@@ -105,7 +106,7 @@ export default function Home() {
                     </VerticalTimelineElement>
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
-                        icon={<AiFillFire />}
+                        icon={<DiCodeigniter />}
                         iconStyle={{
                             background: "rgb(33, 150, 243)",
                             color: "#fff",
@@ -124,7 +125,7 @@ export default function Home() {
                     </VerticalTimelineElement>
                     <VerticalTimelineElement
                         className="vertical-timeline-element--education"
-                        icon={<AiFillFire />}
+                        icon={<DiCodeigniter />}
                         iconStyle={{
                             background: "rgb(233, 30, 99)",
                             color: "#fff",
@@ -143,7 +144,7 @@ export default function Home() {
                     </VerticalTimelineElement>
                     <VerticalTimelineElement
                         className="vertical-timeline-element--education"
-                        icon={<AiFillFire />}
+                        icon={<DiCodeigniter />}
                         iconStyle={{
                             background: "rgb(233, 30, 99)",
                             color: "#fff",
@@ -164,7 +165,7 @@ export default function Home() {
                     </VerticalTimelineElement>
                     <VerticalTimelineElement
                         className="vertical-timeline-element--education"
-                        icon={<AiFillFire />}
+                        icon={<DiCodeigniter />}
                         iconStyle={{
                             background: "rgb(233, 30, 99)",
                             color: "#fff",
@@ -187,6 +188,7 @@ export default function Home() {
                             background: "rgb(16, 204, 82)",
                             color: "#fff",
                         }}
+                        icon={<DiAtom />}
                         contentStyle={{
                             color: "rgb(252, 165, 3)",
                         }}
