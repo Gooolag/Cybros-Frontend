@@ -27,7 +27,7 @@ export type Mutation = {
 
 
 export type MutationLoginArgs = {
-  id: Scalars['String'];
+  details: IdDetails;
 };
 
 
@@ -67,8 +67,15 @@ export type UserDetails = {
 };
 
 export type IdDetails = {
-  id: Scalars['Float'];
+  id: Scalars['String'];
 };
+
+export type LoginMutationVariables = Exact<{
+  details: IdDetails;
+}>;
+
+
+export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginResponse', accessToken: string } };
 
 export type RegisterMutationVariables = Exact<{
   details: UserDetails;
@@ -82,19 +89,23 @@ export type GetAllUsersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetAllUsersQuery = { __typename?: 'Query', getAllUsers: Array<{ __typename?: 'User', id: string, email: string, first_name: string, last_name: string, picture?: Maybe<string> }> };
 
-export type LoginMutationVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginResponse', accessToken: string } };
-
 export type PayloadQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PayloadQuery = { __typename?: 'Query', payload: string };
 
 
+export const LoginDocument = gql`
+    mutation Login($details: idDetails!) {
+  login(details: $details) {
+    accessToken
+  }
+}
+    `;
+
+export function useLoginMutation() {
+  return Urql.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument);
+};
 export const RegisterDocument = gql`
     mutation Register($details: UserDetails!) {
   register(details: $details) {
@@ -123,17 +134,6 @@ export const GetAllUsersDocument = gql`
 
 export function useGetAllUsersQuery(options: Omit<Urql.UseQueryArgs<GetAllUsersQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetAllUsersQuery>({ query: GetAllUsersDocument, ...options });
-};
-export const LoginDocument = gql`
-    mutation Login($id: String!) {
-  login(id: $id) {
-    accessToken
-  }
-}
-    `;
-
-export function useLoginMutation() {
-  return Urql.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument);
 };
 export const PayloadDocument = gql`
     query payload {

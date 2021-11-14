@@ -12,12 +12,12 @@ const profile: React.FC<Props> = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    console.log(id);
     if (data && id) {
-      const us = data.getAllUsers.filter((user) => user.id === id.payload);
+      const us = data.getAllUsers.filter((user)=> user.id === id.payload);
       setUser(() => us[0]);
     }
   }, [data,id]);
+
   if (error) {
     console.log(error);
     return (
