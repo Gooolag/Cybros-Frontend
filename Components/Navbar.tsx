@@ -10,7 +10,7 @@ export default function Home() {
         <Box
             display="flex"
             flex-direction="row"
-            width="100vw"
+            width="98vw"
             margin="auto"
             padding="0.6rem"
         >

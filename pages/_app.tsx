@@ -1,6 +1,7 @@
 import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { createClient, Provider } from "urql";
 
 const client = createClient({
@@ -37,6 +38,7 @@ function MyApp({ Component, pageProps }) {
                 >
                     <Navbar />
                     <Component {...pageProps} />
+                    <Footer />
                 </Box>
             </ChakraProvider>
         </Provider>
