@@ -1,6 +1,7 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Divider } from "@chakra-ui/layout";
 import { FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
+import { BiComment } from "react-icons/bi";
 
 const Forum = () => {
     return (
@@ -29,12 +30,39 @@ const Forum = () => {
                 </FormControl>
             </Box>
             <Box display="flex" flexDirection="column" margin="1.1rem">
-                <Box margin="1.1rem">This is a FAQ</Box>
-                <Box margin="1.1rem">This is a FAQ</Box>
-                <Box margin="1.1rem">This is a FAQ</Box>
-                <Box margin="1.1rem">This is a FAQ</Box>
-                <Box margin="1.1rem">This is a FAQ</Box>
-                <Box margin="1.1rem">This is a FAQ</Box>
+                <Box
+                    margin="1.1rem"
+                    display="flex"
+                    flexDirection="column"
+                    border="2px"
+                    borderRadius="2rem"
+                    padding="1.1rem"
+                >
+                    <Box margin="0.4rem" fontSize="1.8rem">
+                        Question
+                    </Box>
+                    <Box margin="0.4rem">Answer</Box>
+                    <Divider />
+                    <Box
+                        margin="0.6rem"
+                        display="flex"
+                        alignContent="center"
+                        justifyContent="space-between"
+                    >
+                        <Box>Posted by : User</Box>
+                        <Box
+                            marginTop="6.5px"
+                            display="flex"
+                            justifyContent="space-around"
+                            alignContent="center"
+                        >
+                            <Box marginTop="5px">
+                                <BiComment />
+                            </Box>
+                            <Box marginLeft="6px">2.5k</Box>
+                        </Box>
+                    </Box>
+                </Box>
             </Box>
         </Box>
     );
