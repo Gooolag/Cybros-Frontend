@@ -11,15 +11,15 @@ export default function Home() {
             display="flex"
             flex-direction="row"
             width="98vw"
-            margin="auto"
+            justifyContent="space-between"
             padding="0.6rem"
         >
             <Box margin="10px">
                 <Image src={url} alt="Cybruh Logo"></Image>
             </Box>
-            <Box marginRight="30rem" marginLeft="7rem" fontSize="1.2rem">
+            <Box marginRight="10vw" marginLeft="10vw" fontSize="1.2rem">
                 <UnorderedList margin="10px" listStyleType="none">
-                    <HStack spacing="30px">
+                    <HStack spacing="3.5vw">
                         <ListItem border="0px" padding="5px">
                             <Link href="/">Home</Link>
                         </ListItem>
@@ -35,7 +35,7 @@ export default function Home() {
                     </HStack>
                 </UnorderedList>
             </Box>
-            <Box marginTop="0.85rem" fontSize="1.2rem">
+            <Box marginTop="0.85rem" fontSize="1.2rem" marginRight="0.5vw">
                 <Link href="/login">Login</Link>
             </Box>
         </Box>

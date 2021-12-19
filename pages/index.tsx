@@ -13,7 +13,7 @@ import data from "../Components/data";
 export default function Home() {
     return (
         <Box display="flex" flexDirection="column">
-            <Box marginBottom="9rem">
+            <Box marginTop="10vh" marginBottom="35vh">
                 <Text
                     bgGradient="linear(to-l, #FCDAB7 ,#1E5F74)"
                     bgClip="text"
