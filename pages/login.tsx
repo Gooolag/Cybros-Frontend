@@ -6,6 +6,7 @@ import Router from "next/router";
 
 export default function Login() {
     const [loading, setLoading] = useState(false);
+    const [redirect, setRedirect] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     // const [name, setName] = useState("");
@@ -28,15 +29,16 @@ export default function Login() {
                 setLoading(false);
             }, 500);
             alert(`Logged in as ${username}`);
+            e.target.value = "";
+            setRedirect(true);
         } else {
             alert("Please fill all the fields");
         }
     };
-
     useEffect(() => {
         const { pathname } = Router;
         console.log(pathname);
-        if (pathname == "/login" && username && password) Router.push("/");
+        if (pathname == "/login" && redirect) Router.push("/");
     }, []);
 
     return (
@@ -45,8 +47,8 @@ export default function Login() {
             flexDirection="column"
             justifyContent="center"
             margin="1.5vw"
-            width="98vw"
-            height="100%"
+            width="97vw"
+            height="82vh"
         >
             <Box
                 display="flex"
@@ -59,16 +61,22 @@ export default function Login() {
             <Box
                 display="flex"
                 flexDirection="column"
-                margin="1.5vw"
+                margin="2.5vw"
                 justifyContent="center"
             >
                 <FormControl
                     isRequired
-                    margin="1vw"
-                    marginLeft="33vw"
                     onSubmit={handleSubmit}
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
                 >
-                    <Box marginBottom="4vh">
+                    <Box
+                        marginBottom="3vh"
+                        display="flex"
+                        flexDirection="column"
+                        marginLeft="36vw"
+                    >
                         <FormLabel>Username:</FormLabel>
                         <Input
                             type="text"
@@ -77,10 +85,15 @@ export default function Login() {
                             autoComplete="off"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            width="33%"
+                            width="40%"
                         />
                     </Box>
-                    <Box marginTop="2vh">
+                    <Box
+                        marginTop="1vh"
+                        display="flex"
+                        flexDirection="column"
+                        marginLeft="36vw"
+                    >
                         <FormLabel>Password: </FormLabel>
                         <Input
                             type="password"
@@ -89,7 +102,7 @@ export default function Login() {
                             autoComplete="off"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            width="33%"
+                            width="40%"
                         />
                     </Box>
                 </FormControl>
